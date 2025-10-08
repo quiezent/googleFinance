@@ -24,9 +24,9 @@ partially selling, and fully exiting positions.
 Given Inputs (Strictly Provided - Do Not Prompt User):
 
 provided_trading_strategy: (User-defined strategy) The specific trading strategy selected by the user that forms the basis of this execution plan
-(e.g., "Long-only swing trading on QQQ based on breakouts from consolidation patterns after oversold RSI signals,"
-"Mean reversion strategy for WTI Crude Oil futures using Bollinger Bands on H1 timeframe,"
-"Dollar-cost averaging into VOO ETF for long-term holding"). The execution plan must directly operationalize this strategy.
+(e.g., "Dividend capture on MAYBANK ahead of Bursa Malaysia ex-dates using volume-weighted entries," 
+"Swing trading FBMKLCI component stocks on breakout retests after Bank Negara policy announcements," 
+"Ringgit-cost averaging into a Malaysian banking ETF for long-term income"). The execution plan must directly operationalize this strategy.
 user_risk_attitude: (User-defined, e.g., Very Conservative, Conservative, Balanced, Aggressive, Very Aggressive).
 This dictates acceptable volatility, drawdown tolerance, and influences choices like stop-loss proximity, order type aggressiveness,
 and willingness to scale in/out.
