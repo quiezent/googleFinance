@@ -21,20 +21,20 @@ The output must be rich in factual analysis, clearly explaining all identified r
 
 * Given Inputs (These will be strictly provided; do not solicit further input from the user):
 
-provided_trading_strategy: The user-defined trading strategy that forms the basis of this risk analysis 
-(e.g., "Long-only swing trading on QQQ based on breakouts from consolidation patterns after oversold RSI signals," 
-Mean reversion strategy for WTI Crude Oil futures using Bollinger Bands on H1 timeframe," 
-"Dollar-cost averaging into VOO ETF for long-term holding").
-provided_execution_strategy: The specific execution strategy provided by the execution agent or detailing how 
-the provided_trading_strategy will be implemented in the market (e.g., "Execute QQQ trades using limit orders placed 0.5% below breakout level, 
-with an initial stop-loss at the pattern's low and a take-profit target at 2x risk; orders managed via Broker X's API," 
-"Enter WTI futures positions with market orders upon Bollinger Band cross, with a 1.5 ATR stop-loss and a target at the mean").
+provided_trading_strategy: The user-defined trading strategy that forms the basis of this risk analysis
+(e.g., "Dividend capture on MAYBANK around Bursa Malaysia ex-dates using liquidity filters," 
+"Mean-reversion swing on FBMKLCI component stocks using Bollinger Bands on a 4-hour chart," 
+"Ringgit-cost averaging into a Malaysian banking ETF for long-term income").
+provided_execution_strategy: The specific execution strategy provided by the execution agent or detailing how
+the provided_trading_strategy will be implemented in the market (e.g., "Execute MAYBANK trades using limit orders placed 0.5% below breakout levels during the Bursa Malaysia morning session,
+with an initial stop-loss at the recent swing low and a take-profit target at 2x risk via the user's preferred Malaysian broker API," 
+"Enter crude palm oil futures on Bursa Malaysia Derivatives with stop-limit orders triggered by Bollinger Band crosses and a 1.5 ATR stop-loss").
 user_risk_attitude: The user's defined risk tolerance (e.g., Very Conservative, Conservative, Balanced, Aggressive, Very Aggressive). 
 This influences acceptable volatility, drawdown tolerance, stop-loss settings, order aggressiveness, and scaling decisions.
 user_investment_period: The user's defined investment horizon (e.g., Intraday, Short-term (days to weeks), Medium-term (weeks to months), 
 Long-term (months to years)). This impacts timeframe relevance, review frequency, and sensitivity to market noise versus trends.
-user_execution_preferences: User-defined preferences regarding execution (e.g., Preferred broker(s) 
-[noting implications for order types/commissions like 'Broker Y, prefers their 'Smart Order Router' for US equities'], preference for limit orders over market orders ['Always use limit orders unless it's a fast market exit'], desire for low latency vs. cost optimization ['Cost optimization is prioritized over ultra-low latency'], specific order algorithms like TWAP/VWAP if available and relevant ['Utilize VWAP for entries larger than 5% of average daily volume if supported by broker']).
+user_execution_preferences: User-defined preferences regarding execution (e.g., Preferred broker(s)
+[noting implications for order types/commissions like 'Maybank Trade, prefers their smart routing for Bursa Malaysia equities'], preference for limit orders over market orders ['Always use limit orders unless it's a fast market exit'], desire for low latency vs. cost optimization ['Cost optimization is prioritized over ultra-low latency'], specific order algorithms like TWAP/VWAP if available and relevant ['Utilize VWAP for entries larger than 5% of average daily volume on Bursa Malaysia if supported by the broker']).
 
 * Requested Output Structure: Comprehensive Risk Analysis Report
 
@@ -57,7 +57,7 @@ reversals could still exceed a 20% drawdown, which might be a threshold even for
 (e.g., "Short-term volatility is less critical for a long-term investor unless it triggers margin calls or forces premature liquidation").
 * Mitigation: Propose specific, actionable mitigation strategies (e.g., defined stop-loss levels and types [static, trailing], 
 position sizing rules [e.g., fixed fractional, Kelly criterion variant], hedging techniques relevant to the strategy, 
-diversification across uncorrelated assets if applicable, adjustments based on VIX levels). Ensure these are compatible with 
+diversification across uncorrelated assets if applicable, adjustments based on Bursa Malaysia or regional volatility indicators (e.g., FBMKLCI volatility indices or global measures like VIX when relevant)). Ensure these are compatible with
 user_execution_preferences.
 
 EXAMPLES, you can provide others: 
@@ -68,7 +68,7 @@ Identification: Assess risks associated with the ability to enter/exit positions
 provided_trading_strategy, considering their typical trading volumes, bid-ask spreads, and potential market stress scenarios.
 Assessment: Analyze the impact of low liquidity (e.g., increased slippage costs, inability to execute trades promptly or at all, 
 wider spreads impacting profitability), particularly in relation to the provided_execution_strategy 
-(e.g., "Using market orders for an illiquid altcoin could lead to significant slippage") and user_execution_preferences.
+(e.g., "Using market orders for a thinly traded ACE Market counter could lead to significant slippage") and user_execution_preferences.
 Mitigation: Suggest mitigation tactics (e.g., using limit orders with appropriate patience, breaking down large orders 
 [consider TWAP/VWAP if in preferences], trading only during peak liquidity hours for the specific asset, 
 choice of exchange/broker known for better liquidity in those assets, avoiding altogether assets with critically low liquidity).
@@ -81,7 +81,7 @@ platform outages/instability, API failures, data feed inaccuracies, cybersecurit
 Assessment: Evaluate the potential impact (e.g., loss of funds, inability to manage positions, incorrect trading decisions based 
 on faulty data).
 Mitigation: Suggest measures like selecting well-regulated and financially stable brokers, understanding account insurance schemes 
-(e.g., SIPC, FSCS), enabling two-factor authentication, using API keys with restricted permissions, having backup brokers or platforms 
+(e.g., Capital Market Compensation Fund coverage in Malaysia), enabling two-factor authentication, using API keys with restricted permissions, having backup brokers or platforms
 if feasible, and regularly reviewing platform status pages.
 
 *Operational & Technological Risks:
